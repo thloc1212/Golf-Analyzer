@@ -1,54 +1,54 @@
 # Golf Quyt Analyzer
 
-Ung dung phan tich cu swing golf bang computer vision. He thong cho phep upload video swing, trich xuat pose, tinh mot so chi so chuyen dong va du doan handicap band cua nguoi choi.
+Golf Quyt Analyzer is a computer vision application for analyzing golf swing videos. The system lets users upload a swing video, extracts pose data, calculates motion metrics, generates an annotated output video, and predicts the player's handicap band.
 
-## Chuc nang chinh
+## Features
 
-- Upload video swing golf tu giao dien web.
-- Xu ly video bang backend Node.js ket hop Python.
-- Trich xuat pose va tao video co overlay skeleton.
-- Du doan handicap band va tra ve cac chi so nhu swing speed, arm angle.
-- Luu pipeline/notebook phuc vu tien xu ly du lieu va huan luyen model trong thu muc `model`.
+- Upload golf swing videos from a web interface.
+- Process videos with a Node.js backend and Python analysis scripts.
+- Extract pose landmarks and generate skeleton overlay videos.
+- Predict handicap band and return metrics such as swing speed and arm angle.
+- Provide model training and preprocessing notebooks/pipelines under the `model` directory.
 
-## Cau truc thu muc
+## Project Structure
 
 ```text
 .
-+-- dataset/                 # Du lieu video local, khong nen commit len git
-+-- model/                   # Notebook, pipeline, ket qua va model training
++-- dataset/                 # Local video dataset, excluded from git
++-- model/                   # Notebooks, pipelines, training outputs, and model assets
 +-- website/
-|   +-- backend/             # Express API + Python video processing
-|   +-- frontend/            # React + Vite UI
+|   +-- backend/             # Express API and Python video processing
+|   +-- frontend/            # React + Vite web application
 +-- README.md
 ```
 
 ## Dataset
 
-Dataset duoc luu tren Google Drive:
+The dataset is hosted on Google Drive:
 
-[Tai dataset tai day](https://drive.google.com/file/d/1An0NDms-Ku354V0mct9fE577wErdFT5I/view?usp=drive_link)
+[Download the dataset here](https://drive.google.com/file/d/1An0NDms-Ku354V0mct9fE577wErdFT5I/view?usp=drive_link)
 
-Sau khi tai va giai nen, tao thu muc `model/Public Test` va copy noi dung dataset vao thu muc do:
+After downloading and extracting the dataset, create `model/Public Test` and copy the dataset contents into that folder:
 
-```bash
+```text
 model/
 +-- Public Test/
     +-- Trong nha - Indoor/
     +-- Ngoai troi - Outdoor/
 ```
 
-Thu muc `dataset/` o goc repo co the dung de luu ban dataset local. Thu muc nay da duoc them vao `.gitignore` vi video dataset thuong rat nang.
+The root-level `dataset/` folder can be used to keep a local copy of the dataset. It is ignored by git because the video files are large.
 
-## Yeu cau moi truong
+## Requirements
 
-- Node.js 16 tro len
-- Python 3.8 tro len
-- FFmpeg da cai va nam trong `PATH`
-- pip/virtualenv cho Python dependencies
+- Node.js 16 or later
+- Python 3.8 or later
+- FFmpeg installed and available in `PATH`
+- pip/virtualenv for Python dependencies
 
-## Cai dat
+## Installation
 
-### 1. Cai backend
+### 1. Backend
 
 ```bash
 cd website/backend
@@ -56,7 +56,7 @@ npm install
 python -m venv venv
 ```
 
-Kich hoat virtual environment:
+Activate the virtual environment:
 
 ```bash
 # Windows PowerShell
@@ -66,22 +66,22 @@ Kich hoat virtual environment:
 source venv/bin/activate
 ```
 
-Cai Python packages:
+Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Cai frontend
+### 2. Frontend
 
 ```bash
 cd ../frontend
 npm install
 ```
 
-## Chay ung dung
+## Running the Application
 
-Mo 2 terminal rieng.
+Open two separate terminals.
 
 Terminal 1 - backend:
 
@@ -90,7 +90,7 @@ cd website/backend
 npm start
 ```
 
-Backend chay tai `http://localhost:5001`.
+The backend runs at `http://localhost:5001`.
 
 Terminal 2 - frontend:
 
@@ -99,19 +99,19 @@ cd website/frontend
 npm run dev
 ```
 
-Frontend mac dinh chay tai `http://localhost:5173`.
+The frontend usually runs at `http://localhost:5173`.
 
-## Cach su dung
+## Usage
 
-1. Mo `http://localhost:5173` tren trinh duyet.
-2. Upload video swing golf.
-3. Doi backend xu ly video.
-4. Xem video ket qua va cac chi so phan tich.
+1. Open `http://localhost:5173` in a browser.
+2. Upload a golf swing video.
+3. Wait for the backend to process the video.
+4. Review the processed video and analysis metrics.
 
-## Ghi chu phat trien
+## Development Notes
 
-- API phan tich video nam o `POST http://127.0.0.1:5001/analyze`.
-- File model chay inference cua backend nam trong `website/backend/models`.
-- Backend can file scaler tai `website/backend/processed_videos/features/feature_scaler.json`.
-- Pipeline training/tien xu ly nam trong `model/pipeline` va cac notebook trong `model`.
-- Khong commit `dataset/`, `node_modules/`, virtualenv, cache Python, file upload tam hoac output video sinh ra.
+- The video analysis endpoint is `POST http://127.0.0.1:5001/analyze`.
+- Backend inference models are stored in `website/backend/models`.
+- The backend requires `website/backend/processed_videos/features/feature_scaler.json`.
+- Training and preprocessing code is stored in `model/pipeline` and the notebooks under `model`.
+- Do not commit `dataset/`, `node_modules/`, virtual environments, Python caches, temporary uploads, or generated video outputs.
