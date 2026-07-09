@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+website/frontend/node_modules/
+website/backend/node_modules/
+
+# Python environments and caches
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local dataset and generated training data
+dataset/
+model/Public Test/
+model/results/
+model/**/__pycache__/
+
+# Runtime uploads and processed videos
+website/backend/uploads/
+website/backend/processed_videos/sequences/
+website/backend/processed_videos/metadata/
+website/backend/processed_videos/splits/
+website/backend/processed_videos/interp_masks/
+!website/backend/processed_videos/features/
+!website/backend/processed_videos/features/feature_scaler.json
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Logs and local environment
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.*
+
+# Frontend build outputs
+dist/
+build/
+website/frontend/dist/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

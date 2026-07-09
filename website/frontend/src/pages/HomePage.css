@@ -1,0 +1,43 @@
+.home-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  margin-bottom: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: var(--text-main);
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(4px 4px 0px var(--brand-color)); 
+  transition: transform 0.3s;
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.tagline {
+  font-weight: 700;
+  background: var(--brand-color);
+  color: var(--btn-text);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border: 2px solid var(--text-main);
+  box-shadow: 4px 4px 0px var(--text-main);
+}

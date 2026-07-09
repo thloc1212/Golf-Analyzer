@@ -1,0 +1,21 @@
+/* Đây là file style.css */
+
+:root {
+  /* Định nghĩa các biến màu - Giống như pha sẵn sơn vào từng thùng */
+  --mau-nen: #fffffe;        /* Background */
+  --mau-chu-chinh: #2b2c34;  /* Headline */
+  --mau-chu-phu: #2b2c34;    /* Paragraph */
+  --mau-nut-bam: #6246ea;    /* Button */
+  --mau-chu-nut: #fffffe;    /* Button Text */
+}
+
+/* Cách sử dụng */
+body {
+  background-color: var(--mau-nen);
+  color: var(--mau-chu-chinh);
+}
+
+button {
+  background-color: var(--mau-nut-bam);
+  color: var(--mau-chu-nut);
+}
